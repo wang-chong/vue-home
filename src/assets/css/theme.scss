@@ -1,0 +1,54 @@
+/*
+* 全局设置主题样式，每个应用入口文件引用一次
+*/
+html,body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  height: 100%;
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+
+  &:link, &:visited, &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+p{
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+table {
+  border-collapse:collapse;
+
+  thead {
+    box-shadow: none;
+
+    th {
+      text-align: left;
+      text-transform: none;
+    }
+  }
+  tbody {
+    td {
+      text-align: left;
+    }
+  }
+}

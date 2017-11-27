@@ -1,10 +1,42 @@
 <template>
-  <ul class="menu">
-    <router-link :to="{path: link}" tag="li" v-for="link in links" :key="link"><a>{{link}}</a></router-link>
-  </ul>
+  <div class="header-container">
+    <ul class="menu">
+      <router-link :to="{path: link.value}" tag="li" v-for="link in links" :key="link.value" exct><a>{{link.name}}</a></router-link>
+    </ul>
+  </div>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  data () {
+    return {
+      links: [
+        {
+          name: '首页',
+          value: '/'
+        }, {
+          name: 'page1',
+          value: 'hello2'
+        }, {
+          name: 'page2',
+          value: 'hello3'
+        }, {
+          name: 'page3',
+          value: 'hello'
+        }, {
+          name: 'page4',
+          value: 'imgtest'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.header-container{
+  height: 60px;
+}
 ul.menu{
   position: fixed;
   top: 0;
@@ -12,9 +44,6 @@ ul.menu{
   width: 100%;
   height: 60px;
   background-color: rgb(229,229,229);
-  list-style: none;
-  margin: 0;
-  padding: 0;
   li{
     display: block;
     float: left;
@@ -23,8 +52,7 @@ ul.menu{
     line-height: 60px;
   }
 }
-.router-active{
-  color: green;
+.router-exact-active{
   a{
     color: green;
   }
