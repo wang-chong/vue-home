@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/test/Home'
+import NewPage from '@/components/test/NewPage'
 import Hello1 from '@/components/test/Hello1'
 import Hello2 from '@/components/test/Hello2'
 import Hello3 from '@/components/test/Hello3'
@@ -52,6 +53,10 @@ export default new Router({
           component: Hello3
         }
       ]
+    },
+    {
+      path: '/newpage',
+      component: NewPage
     }
   ],
   linkActiveClass: 'router-active', // 路由激活自动添加的class

@@ -1,7 +1,26 @@
 <template>
-  <div class="header-container">
+  <div class="header-container" v-once>
     <ul class="menu">
-      <router-link :to="{path: link.value}" tag="li" v-for="link in links" :key="link.value" exct><a>{{link.name}}</a></router-link>
+      <router-link
+        v-for="item in links"
+        :to="{path: item.value}"
+        tag="li"
+        class="menu"
+        :key="item.value">
+        <a class="menu">{{item.name}}</a>
+        <span class="arrow" v-if="item.submenus"></span>
+        <ul class="submenu" v-if="item.submenus">
+          <router-link
+            v-for="menu in item.submenus"
+            :to="{ path: menu.value }"
+            tag="li"
+            class="submenu"
+            :key="menu.value"
+            exct>
+            <a>{{menu.name}}</a>
+          </router-link>
+        </ul>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -12,20 +31,51 @@ export default {
     return {
       links: [
         {
-          name: '首页',
-          value: '/'
+          name: 'plugin',
+          value: '/plugin',
+          submenus: [{
+            name: 'dropload',
+            value: '/plugin/page1'
+          }, {
+            name: 'detailList',
+            value: '/plugin/hello2'
+          }, {
+            name: '展开效果',
+            value: '/plugin/hello3'
+          }]
         }, {
-          name: 'page1',
-          value: 'hello2'
+          name: '简单路由',
+          value: '/hello'
         }, {
-          name: 'page2',
-          value: 'hello3'
+          name: '图片',
+          value: '/img',
+          submenus: [{
+            name: '头像截图',
+            value: '/img/cut'
+          }, {
+            name: '图形居中汇总',
+            value: '/img/center'
+          }]
         }, {
-          name: 'page3',
-          value: 'hello'
+          name: '组件通信',
+          value: '/transfer',
+          submenus: [{
+            name: 'bus',
+            value: '/transfer/bus'
+          }, {
+            name: 'vuex',
+            value: '/transfer/vuex'
+          }]
         }, {
-          name: 'page4',
-          value: 'imgtest'
+          name: '懒加载',
+          value: '/other'
+        }, {
+          name: '过滤器',
+          value: '/filter',
+          submenus: [{
+            name: '格式化',
+            value: '/filter'
+          }]
         }
       ]
     }
@@ -34,27 +84,76 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/assets/css/frame.scss';
 .header-container{
-  height: 60px;
+  height: $headerHeight;
 }
 ul.menu{
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   width: 100%;
-  height: 60px;
-  background-color: rgb(229,229,229);
-  li{
+  height: $headerHeight;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px #e5e5e5;
+  li.menu{
     display: block;
     float: left;
-    height: 60px;
-    padding: 0 12px;
-    line-height: 60px;
+    height: $headerHeight;
+    padding: 0 0.12rem;
+    line-height: $headerHeight;
+    font-size: 0.16rem;
+    position: relative;
+    &:hover{
+      ul.submenu{
+        display: block;
+      }
+      a.menu{
+        opacity: 0.8;
+      }
+    }
+    &:hover, &.router-active{
+      a.menu{
+        color: $activeColor;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $activeColor;
+      }
+      .arrow{
+        border-color: $activeColor transparent transparent transparent;
+      }
+    }
+    .arrow{
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 0;
+      border-width: 5px 5px 0;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
   }
 }
-.router-exact-active{
-  a{
-    color: green;
+ul.submenu{
+  position: absolute;
+  right: 0;
+  top: 70%;
+  padding: 10px 20px;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 1px #ddd;
+  border-radius: 3px;
+  display: none;
+  li.submenu{
+    line-height: 2;
+    font-size: 14px;
+    &:hover, &.router-exact-active{
+      a{
+        color: $activeColor;
+      }
+    }
   }
 }
 </style>

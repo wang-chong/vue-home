@@ -1,8 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
-    <my-input v-model="inputValue" />
-    <button @click="change">changetest</button>
+    简单路由
   </div>
 </template>
 

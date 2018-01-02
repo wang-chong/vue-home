@@ -6,6 +6,9 @@
     <ul>
       <li v-for="(item, idx) in childRoutes"><router-link :to="item.path">{{item.name}}</router-link></li>
     </ul>
+    <ul>
+      <li><a href="#newpage">home1</a></li>
+    </ul>
     <router-view></router-view>
   </div>
 </template>

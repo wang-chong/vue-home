@@ -1,12 +1,16 @@
 /*
 * 全局设置主题样式，每个应用入口文件引用一次
 */
+[v-cloak] {
+  display: none!important;
+}
 html,body{
   margin: 0;
   padding: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   height: 100%;
   box-sizing: border-box;
+  font-size: 100px;
 }
 ul {
   margin: 0;

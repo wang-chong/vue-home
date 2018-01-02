@@ -4,14 +4,15 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '~@/assets/css/frame.scss';
 .footer-container{
   position: absolute;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
+  height: $footerHeight;
+  line-height: $footerHeight;
   bottom: 0;
   text-align: center;
-  background-color: rgb(193, 193, 193);
+  background-image: -webkit-radial-gradient(center, #f3d7d7, #538816);
 }
 </style>

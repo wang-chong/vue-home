@@ -1,29 +1,46 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Header from '@/components/index/Header'
+import Content from '@/components/index/Content'
 import Footer from '@/components/index/Footer'
 import Hello from '@/components/index/Hello'
+import Welcome from '@/components/index/Welcome'
 import Page1 from '@/components/index/page1/Hello1'
 import Page2 from '@/components/index/page2/Hello2'
 import Page3 from '@/components/index/page3/Hello3'
-import imgTest from '@/components/index/imgTest'
+import Bus from '@/components/index/transfer/Bus'
+import Vuex from '@/components/index/transfer/Vuex'
+import Filter from '@/components/index/filter/Filter'
+import Cut from '@/components/index/img/Cut'
+import Center from '@/components/index/img/Center'
 
 // 异步加载组件，会生成独立的js，访问的时候才会去加载
 const other = () => import('@/components/index/Other.vue')
 
 Vue.use(Router)
 
-export default new Router({
+const ROUTER = new Router({
   routes: [
     {
       path: '/',
-      components: { // 命名视图的写法，一个路由，两个组件
+      components: {
         header: Header,
+        default: Welcome,
+        footer: Footer
+      }
+    },
+    {
+      // 命名视图的写法，一个路由，两个组件, 默认有头有脚,且有过渡
+      path: '/plugin',
+      components: {
+        header: Header,
+        content: Content,
         footer: Footer
       },
       children: [
         {
           path: '/',
+          alias: 'page1',
           component: Page1
         },
         {
@@ -37,16 +54,73 @@ export default new Router({
       ]
     },
     {
-      path: '/hello',
-      component: Hello // 简单路由，非命名视图
+      // 默认有头有脚,没有过渡
+      path: '/img',
+      components: {
+        header: Header,
+        default: Content,
+        footer: Footer
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'cut',
+          components: {
+            'no-transition': Cut
+          }
+        },
+        {
+          path: 'center',
+          components: {
+            'no-transition': Center
+          }
+        }
+      ]
     },
     {
+      // 组件通信
+      path: '/transfer',
+      components: {
+        header: Header,
+        default: Content,
+        footer: Footer
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'bus',
+          components: {
+            'no-transition': Bus
+          }
+        },
+        {
+          path: 'vuex',
+          components: {
+            'no-transition': Vuex
+          }
+        }
+      ]
+    },
+    {
+      path: '/filter',
+      components: {
+        header: Header,
+        default: Filter,
+        footer: Footer
+      }
+    },
+    {
+      // 没有脚
       path: '/other',
-      component: other
+      components: {
+        header: Header,
+        default: other
+      }
     },
     {
-      path: '/imgtest',
-      component: imgTest
+      // 简单路由，无头
+      path: '/hello',
+      component: Hello
     }
   ],
   linkActiveClass: 'router-active', // 路由激活自动添加的class
@@ -54,3 +128,14 @@ export default new Router({
   mode: 'hash', // 默认hash，路由模式
   base: '/' // 默认‘/’,应用的根
 })
+
+ROUTER.beforeEach((to, from, next) => {
+  // 此处可以做一些路由判断，比如没有匹配到路由就跳转到首页 next('/')
+  if (to.matched.length === 0) {
+    next('/')
+  } else {
+    next()
+  }
+})
+
+export default ROUTER

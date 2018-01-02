@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>我是全局组件！！！！！！！！</p>
+    <p>我是全局组件input！！！！！！！！</p>
     <input type="text" v-model="currentValue">
   </div>
 </template>
@@ -31,3 +31,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+input{
+  padding: 3px 6px;
+  border-radius: 3px;
+  height: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #e6e6e6;
+  &:focus{
+    border-color: #409eff;
+  }
+}
+</style>

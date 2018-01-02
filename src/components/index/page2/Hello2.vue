@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hello2">
     <p>我是hello2</p>
     <child-component @childClick="childComponentClick">
       <p>我是child slot</p>
@@ -8,14 +8,21 @@
     <div class="detail">
       <detail-list :content="detail" minHeight="21" :autoHide="false" activeClass="test" />
     </div>
+    <p>以下是other组件，来自懒加载！</p>
+    <other />
+    <p v-once>此数字使用了v-once，所以改变test的值也不会改变渲染test等于{{test}}</p>
+    <button @click="changeTest">改变test的值为100</button>
   </div>
 </template>
 
 <script>
 import childComponent from './ChildComponent'
+const other = () => import('./../Other')
+
 export default {
   components: {
-    'child-component': childComponent
+    'child-component': childComponent,
+    'other': other
   },
   data () {
     return {
@@ -32,6 +39,9 @@ export default {
     console.log(this)
   },
   methods: {
+    changeTest () {
+      this.test = 100
+    },
     childSlotClick () {
       alert('我在父组件')
     },
@@ -43,8 +53,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.detail{
-  width: 300px;
-  background-color: rgba(0,0,0,0.1);
+.hello2{
+  width: 100%;
+  .detail{
+    width: 3rem;
+    background-color: rgba(0,0,0,0.1);
+  }
 }
 </style>
