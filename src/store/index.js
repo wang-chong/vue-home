@@ -26,6 +26,14 @@ const store = new Vuex.Store({
         state.pageNo++
       }
     }
+  },
+  actions: {
+    [INCREMENT] ({ commit }, args) {
+      // 此处可以有异步操作，然后再去更新state
+      setTimeout(() => {
+        commit(INCREMENT, args)
+      }, 2000)
+    }
   }
 })
 

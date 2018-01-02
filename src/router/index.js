@@ -5,12 +5,13 @@ import Content from '@/components/index/Content'
 import Footer from '@/components/index/Footer'
 import Hello from '@/components/index/Hello'
 import Welcome from '@/components/index/Welcome'
-import Page1 from '@/components/index/page1/Hello1'
-import Page2 from '@/components/index/page2/Hello2'
-import Page3 from '@/components/index/page3/Hello3'
+import Page1 from '@/components/index/plugin/Hello1'
+import Page2 from '@/components/index/plugin/Hello2'
+import Page3 from '@/components/index/plugin/Hello3'
 import Bus from '@/components/index/transfer/Bus'
 import Vuex from '@/components/index/transfer/Vuex'
 import Filter from '@/components/index/filter/Filter'
+import promise from '@/components/index/async/promise'
 import Cut from '@/components/index/img/Cut'
 import Center from '@/components/index/img/Center'
 
@@ -104,6 +105,20 @@ const ROUTER = new Router({
         default: Filter,
         footer: Footer
       }
+    },
+    {
+      path: '/async',
+      components: {
+        header: Header,
+        default: Content
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'promise',
+          component: promise
+        }
+      ]
     },
     {
       // 没有脚

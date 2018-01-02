@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 40px;">
+  <div style="padding: 40px;" v-once>
     <h3>下面的数据经过了过滤器进行格式化</h3>
     <p>日期格式化{{ new Date().getTime() | date }}</p>
     <p>日期格式化{{ new Date().getTime() | date('yyyy:MM:dd hh:mm:ss') }}</p>

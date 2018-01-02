@@ -74,6 +74,17 @@ export default {
         }, {
           name: '过滤器',
           value: '/filter'
+        },
+        {
+          name: '异步',
+          value: '/async',
+          submenus: [{
+            name: 'promise',
+            value: '/async/promise'
+          }, {
+            name: 'wait(未开发)',
+            value: '/async/promise'
+          }]
         }
       ]
     }
