@@ -73,11 +73,7 @@ export default {
           value: '/other'
         }, {
           name: '过滤器',
-          value: '/filter',
-          submenus: [{
-            name: '格式化',
-            value: '/filter'
-          }]
+          value: '/filter'
         }
       ]
     }

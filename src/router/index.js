@@ -41,11 +41,15 @@ const ROUTER = new Router({
         {
           path: '/',
           alias: 'page1',
-          component: Page1
+          components: {
+            transition: Page1
+          }
         },
         {
           path: 'hello2',
-          component: Page2
+          components: {
+            transition: Page2
+          }
         },
         {
           path: 'hello3',
@@ -65,15 +69,11 @@ const ROUTER = new Router({
         {
           path: '/',
           alias: 'cut',
-          components: {
-            'no-transition': Cut
-          }
+          component: Cut
         },
         {
           path: 'center',
-          components: {
-            'no-transition': Center
-          }
+          component: Center
         }
       ]
     },
@@ -89,15 +89,11 @@ const ROUTER = new Router({
         {
           path: '/',
           alias: 'bus',
-          components: {
-            'no-transition': Bus
-          }
+          component: Bus
         },
         {
           path: 'vuex',
-          components: {
-            'no-transition': Vuex
-          }
+          component: Vuex
         }
       ]
     },

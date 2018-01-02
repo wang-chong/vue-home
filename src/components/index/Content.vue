@@ -2,10 +2,10 @@
   <div class="page-content">
     <keep-alive>
       <transition name="slide">
-        <router-view class="slide" v-cloak></router-view>
+        <router-view name="transition" class="slide" v-cloak></router-view>
       </transition>
     </keep-alive>
-    <router-view name="no-transition"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
