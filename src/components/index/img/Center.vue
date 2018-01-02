@@ -62,8 +62,8 @@ export default {
   .box{
     position: relative;
     width: 24%;
-    height: 200px;
-    line-height: 200px;
+    height: 2rem;
+    line-height: 2rem;
     margin: 0 0.5%;
     text-align: center;
     border: 1px solid #ccc;
@@ -108,8 +108,8 @@ export default {
     }
     .center-5{
       // 需要配合父组件的属性
-      // height: 200px;
-      // line-height: 200px;
+      // height: 2rem;
+      // line-height: 2rem;
       // text-align: center;
       max-width: 100%;
       max-height: 100%;

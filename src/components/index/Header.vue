@@ -1,27 +1,29 @@
 <template>
   <div class="header-container" v-once>
-    <ul class="menu">
-      <router-link
-        v-for="item in links"
-        :to="{path: item.value}"
-        tag="li"
-        class="menu"
-        :key="item.value">
-        <a class="menu">{{item.name}}</a>
-        <span class="arrow" v-if="item.submenus"></span>
-        <ul class="submenu" v-if="item.submenus">
-          <router-link
-            v-for="menu in item.submenus"
-            :to="{ path: menu.value }"
-            tag="li"
-            class="submenu"
-            :key="menu.value"
-            exct>
-            <a>{{menu.name}}</a>
-          </router-link>
-        </ul>
-      </router-link>
-    </ul>
+    <div class="header-menu">
+      <ul class="menu">
+        <router-link
+          v-for="item in links"
+          :to="{path: item.value}"
+          tag="li"
+          class="menu"
+          :key="item.value">
+          <a class="menu">{{item.name}}</a>
+          <span class="arrow" v-if="item.submenus"></span>
+          <ul class="submenu" v-if="item.submenus">
+            <router-link
+              v-for="menu in item.submenus"
+              :to="{ path: menu.value }"
+              tag="li"
+              class="submenu"
+              :key="menu.value"
+              exct>
+              <a>{{menu.name}}</a>
+            </router-link>
+          </ul>
+        </router-link>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -88,7 +90,7 @@ export default {
 .header-container{
   height: $headerHeight;
 }
-ul.menu{
+.header-menu{
   position: fixed;
   top: 0;
   left: 0;
@@ -98,48 +100,53 @@ ul.menu{
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
   box-shadow: 0 1px 1px #e5e5e5;
-  li.menu{
-    display: block;
-    float: left;
-    height: $headerHeight;
-    padding: 0 0.12rem;
-    line-height: $headerHeight;
-    font-size: 0.16rem;
-    position: relative;
-    &:hover{
-      ul.submenu{
-        display: block;
+  min-width: 6.66rem;
+  ul.menu{
+    float: right;
+    padding-right: 0.3rem;
+    li.menu{
+      display: block;
+      float: left;
+      height: $headerHeight;
+      padding: 0 0.12rem;
+      line-height: $headerHeight;
+      font-size: 0.16rem;
+      position: relative;
+      &:hover{
+        ul.submenu{
+          display: block;
+        }
+        a.menu{
+          opacity: 0.8;
+        }
       }
-      a.menu{
-        opacity: 0.8;
-      }
-    }
-    &:hover, &.router-active{
-      a.menu{
-        color: $activeColor;
-        padding-bottom: 10px;
-        border-bottom: 2px solid $activeColor;
+      &:hover, &.router-active{
+        a.menu{
+          color: $activeColor;
+          padding-bottom: 0.1rem;
+          border-bottom: 2px solid $activeColor;
+        }
+        .arrow{
+          border-color: $activeColor transparent transparent transparent;
+        }
       }
       .arrow{
-        border-color: $activeColor transparent transparent transparent;
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        border-width: 5px 5px 0;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
       }
-    }
-    .arrow{
-      display: inline-block;
-      vertical-align: middle;
-      width: 0;
-      height: 0;
-      border-width: 5px 5px 0;
-      border-style: solid;
-      border-color: #333 transparent transparent transparent;
     }
   }
 }
 ul.submenu{
   position: absolute;
-  right: 0;
+  right: 0.12rem;
   top: 70%;
-  padding: 10px 20px;
+  padding: 0.1rem 0.2rem;
   white-space: nowrap;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -148,7 +155,7 @@ ul.submenu{
   display: none;
   li.submenu{
     line-height: 2;
-    font-size: 14px;
+    font-size: 0.14rem;
     &:hover, &.router-exact-active{
       a{
         color: $activeColor;

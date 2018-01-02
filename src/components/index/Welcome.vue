@@ -5,8 +5,8 @@
 <style lang="scss" scoped>
 .welcome{
   text-align: center;
-  padding: 200px;
-  font-size: 30px;
+  padding: 2rem;
+  font-size: 0.3rem;
   font-weight: 900;
   background-image: linear-gradient(to right, #f3d7d7, #538816);
   // 以下给文字添加背景

@@ -130,8 +130,8 @@ export default {
 <style lang="scss" scoped>
 .img-container{
   position: relative;
-  width: 400px;
-  height: 300px;
+  width: 4rem;
+  height: 3rem;
   overflow: hidden;
   background-color: rgba(0,0,0,0.3);
   margin: auto;
@@ -150,8 +150,8 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 75px;
+    width: 1rem;
+    height: 0.75rem;
     background-color: red;
     cursor: move;
   }

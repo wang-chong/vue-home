@@ -37,6 +37,6 @@ export default {
 <style lang="scss" scoped>
 span{
   color: red;
-  font-size: 16px;
+  font-size: 0.16rem;
 }
 </style>

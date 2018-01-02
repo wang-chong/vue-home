@@ -25,12 +25,12 @@ export default {
 
 <style lang="scss" scoped>
 #page6{
-  width: 600px;
+  width: 6rem;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 0.8rem;
   position: relative;
   background-color: #efebd0;
-  padding: 20px;
+  padding: 0.2rem;
   &:after{
     content: '';
     clear: both;
