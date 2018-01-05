@@ -1,6 +1,6 @@
 <!-- 测试非父子组件间的参数传递 -->
 <template>
-  <div id="page5">
+  <div id="bus">
     <h3>非父子组件间通信--bus</h3>
     <div class="box">
       <component-1></component-1>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#page5{
+#bus{
   width: 6rem;
   margin: 0 auto;
   padding: 0.3rem;

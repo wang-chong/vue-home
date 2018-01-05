@@ -10,6 +10,8 @@ import Page2 from '@/components/index/plugin/Hello2'
 import Page3 from '@/components/index/plugin/Hello3'
 import Bus from '@/components/index/transfer/Bus'
 import Vuex from '@/components/index/transfer/Vuex'
+import Java from '@/components/index/thread/Java'
+import Javascript from '@/components/index/thread/Javascript'
 import Filter from '@/components/index/filter/Filter'
 import promise from '@/components/index/async/promise'
 import Cut from '@/components/index/img/Cut'
@@ -117,6 +119,24 @@ const ROUTER = new Router({
           path: '/',
           alias: 'promise',
           component: promise
+        }
+      ]
+    },
+    {
+      path: '/thread',
+      components: {
+        header: Header,
+        default: Content
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'javascript',
+          component: Javascript
+        },
+        {
+          path: 'java',
+          component: Java
         }
       ]
     },

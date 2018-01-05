@@ -85,6 +85,17 @@ export default {
             name: 'wait(未开发)',
             value: '/async/promise'
           }]
+        },
+        {
+          name: '多线程',
+          value: '/thread',
+          submenus: [{
+            name: 'Javascipt',
+            value: '/thread/javascript'
+          }, {
+            name: 'Java',
+            value: '/thread/java'
+          }]
         }
       ]
     }
@@ -153,7 +164,7 @@ ul.submenu{
   position: absolute;
   right: 0.12rem;
   top: 70%;
-  padding: 0.1rem 0.2rem;
+  padding: 0.1rem 0.2rem 0.1rem 0.25rem;
   white-space: nowrap;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -163,9 +174,23 @@ ul.submenu{
   li.submenu{
     line-height: 2;
     font-size: 0.14rem;
+    position: relative;
     &:hover, &.router-exact-active{
       a{
         color: $activeColor;
+      }
+    }
+    &.router-exact-active{
+      &:before{
+        content: '';
+        position: absolute;
+        left: -0.1rem;
+        top: 0.09rem;
+        border-style: solid;
+        border-width: 0.05rem 0 0.05rem 0.05rem;
+        border-color: transparent transparent transparent $activeColor;
+        height: 0;
+        width: 0;
       }
     }
   }
