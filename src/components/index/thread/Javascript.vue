@@ -8,13 +8,17 @@
     </div>
     <div class="worker-box">
       <p>待排序数组如下</p>
-      <p>
-        <span v-for="item in arr">{{item}}|</span>
+      <p v-for="item in arrs">
+        {{item}}
       </p>
-      <p>此排序来自worker2,后台运行的js,排序过程中不会对页面产生阻塞</p>
+      <p>此排序来自worker2,后台运行的js,排序过程中不会对页面产生阻塞,并且启用了两次woker2，分别对两个数组进行了排序</p>
       <div v-if="arrResult.length > 0">
-        <p>排序结果如下：</p>
-        <span v-for="item in arrResult">{{item}}|</span>
+        <p>数组1排序结果如下：</p>
+        <span>{{arrResult}}</span>
+      </div>
+      <div v-if="arrResult1.length > 0">
+        <p>数组2排序结果如下：</p>
+        <span>{{arrResult1}}</span>
       </div>
       <button @click="workerStart(2)">worker2开始排序</button>
     </div>
@@ -36,8 +40,9 @@ export default {
   data () {
     return {
       count: 0,
-      arr: [19, 73, 49, 40, 63, 49],
-      arrResult: []
+      arrs: [[19, 73, 49, 40, 63, 49], [81, 74, 20, 88, 293, 8, 290, 67]],
+      arrResult: [],
+      arrResult1: []
     }
   },
   methods: {
@@ -47,26 +52,26 @@ export default {
         if (!workers[idx]) {
           const workerjs = '/static/js/worker/worker' + idx + '.js'
           workers[idx] = new Worker(workerjs)
-          let message = ''
           switch (idx) {
             case 1:
+              workers[idx].postMessage('')
+              workers[idx].onmessage = (msg) => {
+                vm.count1 = msg.data
+              }
               break
             case 2:
-              message = vm.arr
-              break
-          }
-          workers[idx].postMessage(message)
-          workers[idx].onmessage = (msg) => {
-            const result = msg.data
-            switch (idx) {
-              case 1:
-                vm.count1 = result
-                break
-              case 2:
-                vm.arrResult = result
+              workers[idx].postMessage(vm.arrs[0])
+              workers[idx + '2'] = new Worker(workerjs)
+              workers[idx + '2'].postMessage(vm.arrs[1])
+              workers[idx].onmessage = (msg) => {
+                vm.arrResult = msg.data
                 vm.workerStop(idx)
-                break
-            }
+              }
+              workers[idx + '2'].onmessage = (msg) => {
+                vm.arrResult1 = msg.data
+                vm.workerStop(idx + '2')
+              }
+              break
           }
         }
       }
@@ -94,6 +99,9 @@ export default {
     border-radius: 8px;
     padding: 20px;
     background-color: #b1d7e8;
+    div{
+      margin: 10px 0;
+    }
     p{
       margin-bottom: 10px;
     }
