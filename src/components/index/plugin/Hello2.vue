@@ -8,8 +8,6 @@
     <div class="detail">
       <detail-list :content="detail" minHeight="21" :autoHide="false" activeClass="test" />
     </div>
-    <p>以下是other组件，来自懒加载！</p>
-    <other />
     <p v-once>此数字使用了v-once，所以改变test的值也不会改变渲染test等于{{test}}</p>
     <button @click="changeTest">改变test的值为100</button>
   </div>
@@ -17,12 +15,10 @@
 
 <script>
 import childComponent from './ChildComponent'
-const other = () => import('./../Other')
 
 export default {
   components: {
-    'child-component': childComponent,
-    'other': other
+    'child-component': childComponent
   },
   data () {
     return {

@@ -69,9 +69,6 @@ export default {
             value: '/transfer/vuex'
           }]
         }, {
-          name: '懒加载',
-          value: '/other'
-        }, {
           name: '过滤器',
           value: '/filter'
         },
@@ -95,6 +92,20 @@ export default {
           }, {
             name: 'Java',
             value: '/thread/java'
+          }, {
+            name: 'Java线程通信',
+            value: '/thread/java_transfer'
+          }]
+        },
+        {
+          name: '其他基础',
+          value: '/basic',
+          submenus: [{
+            name: 'Bind函数(apply/call)',
+            value: '/basic/bind'
+          }, {
+            name: 'js懒加载',
+            value: '/basic/lazyload'
           }]
         }
       ]
@@ -118,7 +129,7 @@ export default {
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
   box-shadow: 0 1px 1px #e5e5e5;
-  min-width: 6.66rem;
+  min-width: 8rem;
   ul.menu{
     float: right;
     padding-right: 0.3rem;

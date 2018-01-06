@@ -12,13 +12,18 @@ import Bus from '@/components/index/transfer/Bus'
 import Vuex from '@/components/index/transfer/Vuex'
 import Java from '@/components/index/thread/Java'
 import Javascript from '@/components/index/thread/Javascript'
+import JavaTransfer from '@/components/index/thread/JavaTransfer'
 import Filter from '@/components/index/filter/Filter'
 import promise from '@/components/index/async/promise'
 import Cut from '@/components/index/img/Cut'
 import Center from '@/components/index/img/Center'
 
 // 异步加载组件，会生成独立的js，访问的时候才会去加载
-const other = () => import('@/components/index/Other.vue')
+// 需要异步加载的组件集合
+let asyncComponents = {
+  lazyload: () => import('@/components/index/basic/Lazyload.vue'),
+  bind: () => import('@/components/index/basic/Bind.vue')
+}
 
 Vue.use(Router)
 
@@ -137,16 +142,30 @@ const ROUTER = new Router({
         {
           path: 'java',
           component: Java
+        },
+        {
+          path: 'java_transfer',
+          component: JavaTransfer
         }
       ]
     },
     {
-      // 没有脚
-      path: '/other',
+      path: '/basic',
       components: {
         header: Header,
-        default: other
-      }
+        default: Content
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'bind',
+          component: asyncComponents.bind
+        },
+        {
+          path: 'lazyload',
+          component: asyncComponents.lazyload
+        }
+      ]
     },
     {
       // 简单路由，无头

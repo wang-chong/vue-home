@@ -5,7 +5,7 @@
         <router-view name="transition" class="slide" v-cloak></router-view>
       </transition>
     </keep-alive>
-    <router-view></router-view>
+    <router-view class="page"></router-view>
   </div>
 </template>
 
@@ -45,5 +45,28 @@
   animation-name: slide-leave;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
+}
+</style>
+
+<style lang="scss">
+.page{
+  width: 6.6rem;
+  margin: 0 auto;
+  padding: 0.3rem;
+  position: relative;
+  background-color: #efebd0;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  pre{
+    margin: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #b1d7e8;
+    font-size: 14px;
+    span{
+      color: red;
+      font-weight: 600;
+    }
+  }
 }
 </style>

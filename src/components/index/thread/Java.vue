@@ -1,5 +1,5 @@
 <template>
-  <div class="java">
+  <div>
     <pre>
       // 多线程实现实例
       // 继承Thread类，并且覆盖run方法
@@ -171,28 +171,40 @@
         }
     }
     </pre>
+    <h3>Java5开始推荐另外一种加锁的方式</h3>
+    <pre>
+      public class J5Lock implements Runnable{
+        <span>private final ReentrantLock lock = new ReentrantLock()</span>;
+        private int appleNum = 50;
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 50; i++) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                doit();
+            }
+        }
+
+        private void doit() {
+            // 此时会出现线程不安全问题，多个线程吃同一个苹果
+    //        if (appleNum > 0) {
+    //            System.out.println(Thread.currentThread().getName() + "在吃第" + appleNum + "号苹果");
+    //            appleNum--;
+    //        }
+
+            // 改进方案
+            <span>lock.lock()</span>;
+            if (appleNum > 0) {
+                System.out.println(Thread.currentThread().getName() + "在吃第" + appleNum + "号苹果");
+                appleNum--;
+            }
+            <span>lock.unlock()</span>;
+        }
+    }
+    </pre>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.java{
-  width: 6.6rem;
-  margin: 0 auto;
-  padding: 0.3rem;
-  position: relative;
-  background-color: #efebd0;
-  border-radius: 8px;
-  margin-top: 0.3rem;
-  pre{
-    margin: 20px;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #b1d7e8;
-    font-size: 14px;
-    span{
-      color: red;
-      font-weight: 600;
-    }
-  }
-}
-</style>

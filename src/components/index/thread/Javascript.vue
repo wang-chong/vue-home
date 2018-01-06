@@ -1,5 +1,5 @@
 <template>
-  <div class="javascript">
+  <div>
     <div class="worker-box">
       <p>此计数来自worker1,后台运行的js,不会对页面产生阻塞</p>
       <p>count等于{{count}}</p>
@@ -56,7 +56,7 @@ export default {
             case 1:
               workers[idx].postMessage('')
               workers[idx].onmessage = (msg) => {
-                vm.count1 = msg.data
+                vm.count = msg.data
               }
               break
             case 2:
@@ -79,6 +79,7 @@ export default {
     workerStop (idx) {
       if (workers[idx]) {
         workers[idx].terminate()
+        workers[idx] = null
       }
     }
   }
@@ -86,30 +87,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.javascript{
-  width: 6rem;
-  margin: 0 auto;
-  padding: 0.3rem;
-  position: relative;
-  background-color: #efebd0;
+.worker-box{
+  margin: 20px;
   border-radius: 8px;
-  margin-top: 0.3rem;
-  .worker-box{
-    margin: 20px;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: #b1d7e8;
-    div{
+  padding: 20px;
+  background-color: #b1d7e8;
+  div{
+    margin: 10px 0;
+  }
+  p{
+    margin-bottom: 10px;
+  }
+  ol{
+    list-style-type: simp-chinese-formal;
+    li{
       margin: 10px 0;
-    }
-    p{
-      margin-bottom: 10px;
-    }
-    ol{
-      list-style-type: simp-chinese-formal;
-      li{
-        margin: 10px 0;
-      }
     }
   }
 }
