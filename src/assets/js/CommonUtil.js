@@ -39,7 +39,7 @@ function LinkedList () {
 
   this.removeFirst = function () {
     if (this.size === 0) {
-      return
+      return false
     }
     this.first = this.first.next
     if (this.first) {
@@ -48,11 +48,12 @@ function LinkedList () {
       this.last = null
     }
     this.size--
+    return true
   }
 
   this.removeLast = function () {
     if (this.size === 0) {
-      return
+      return false
     }
     this.last = this.last.prev
     if (this.last) {
@@ -61,6 +62,35 @@ function LinkedList () {
       this.first = null
     }
     this.size--
+    return true
+  }
+
+  this.removeIndex = function (index) {
+    if (index >= this.size || index <= 0) {
+      return false
+    }
+    switch (index) {
+      case 1:
+        this.removeFirst()
+        break
+      case (this.size - 1):
+        this.removeLast()
+        break
+      default:
+        let count = 1
+        let currentNode = this.first
+        while (count !== index) {
+          count++
+          currentNode = currentNode.next
+          if (count === index) {
+            currentNode.prev.next = currentNode.next
+            currentNode.next.prev = currentNode.prev
+            currentNode = null
+          }
+        }
+        break
+    }
+    return true
   }
 
   this.toString = function () {
