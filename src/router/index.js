@@ -22,7 +22,8 @@ import Center from '@/components/index/img/Center'
 // 需要异步加载的组件集合
 let asyncComponents = {
   lazyload: () => import('@/components/index/basic/Lazyload.vue'),
-  bind: () => import('@/components/index/basic/Bind.vue')
+  bind: () => import('@/components/index/basic/Bind.vue'),
+  linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue')
 }
 
 Vue.use(Router)
@@ -164,6 +165,20 @@ const ROUTER = new Router({
         {
           path: 'lazyload',
           component: asyncComponents.lazyload
+        }
+      ]
+    },
+    {
+      path: '/datastrcture',
+      components: {
+        header: Header,
+        default: Content
+      },
+      children: [
+        {
+          path: '/',
+          alias: 'linkedlist',
+          component: asyncComponents.linkedlist
         }
       ]
     },

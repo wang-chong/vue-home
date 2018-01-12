@@ -98,6 +98,14 @@ export default {
           }]
         },
         {
+          name: '数据结构',
+          value: '/datastrcture',
+          submenus: [{
+            name: '链表(linkedlist)',
+            value: '/datastrcture/linkedlist'
+          }]
+        },
+        {
           name: '其他基础',
           value: '/basic',
           submenus: [{
