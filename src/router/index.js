@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Header from '@/components/index/Header'
 import Content from '@/components/index/Content'
 import Footer from '@/components/index/Footer'
-import Hello from '@/components/index/Hello'
 import Welcome from '@/components/index/Welcome'
 import Page1 from '@/components/index/plugin/Hello1'
 import Page2 from '@/components/index/plugin/Hello2'
@@ -181,11 +180,6 @@ const ROUTER = new Router({
           component: asyncComponents.linkedlist
         }
       ]
-    },
-    {
-      // 简单路由，无头
-      path: '/hello',
-      component: Hello
     }
   ],
   linkActiveClass: 'router-active', // 路由激活自动添加的class

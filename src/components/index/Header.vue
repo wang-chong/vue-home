@@ -46,9 +46,6 @@ export default {
             value: '/plugin/hello3'
           }]
         }, {
-          name: '简单路由',
-          value: '/hello'
-        }, {
           name: '图片',
           value: '/img',
           submenus: [{
