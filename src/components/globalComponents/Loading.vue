@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import bus, { SHOW_LOADING, HIDE_LOADING } from '@/assets/js/bus.js'
+import bus from '@/assets/js/bus'
+import { SHOW_LOADING, HIDE_LOADING } from '@/assets/js/BusActions'
 
 export default {
   data () {

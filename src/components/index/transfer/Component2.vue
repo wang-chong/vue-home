@@ -7,6 +7,7 @@
 
 <script>
 import bus from '@/assets/js/bus.js'
+import { Test } from '@/assets/js/BusActions'
 
 export default {
   data () {
@@ -16,7 +17,7 @@ export default {
   },
   mounted () {
     const vm = this
-    bus.$on('find2', function (msg) {
+    bus.$on(Test, function (msg) {
       vm.msg = msg
     })
   }

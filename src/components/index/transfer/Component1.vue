@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import bus from '@/assets/js/bus.js'
+import bus from '@/assets/js/bus'
+import { Test } from '@/assets/js/BusActions'
 
 export default {
   data () {
@@ -17,7 +18,7 @@ export default {
   },
   methods: {
     clickAc () {
-      bus.$emit('find2', this.value)
+      bus.$emit(Test, this.value)
     }
   }
 }
