@@ -9,3 +9,13 @@
 import Vue from 'vue'
 const bus = new Vue()
 export default bus
+
+/*
+*
+* 所有该bus的事件列表
+*
+*/
+// 打开加载中的效果
+export const SHOW_LOADING = 'showLoading'
+// 关闭加载中的效果
+export const HIDE_LOADING = 'hideLoading'

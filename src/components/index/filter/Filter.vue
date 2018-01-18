@@ -9,3 +9,17 @@
     <p>金额格式化，如{{ 1920199.8293 | amount(1) }}(保留一位小数)</p>
   </div>
 </template>
+
+<script>
+import bus, { SHOW_LOADING, HIDE_LOADING } from '@/assets/js/bus.js'
+
+export default {
+  beforeRouteEnter (to, from, next) {
+    bus.$emit(SHOW_LOADING)
+    setTimeout(() => {
+      bus.$emit(HIDE_LOADING)
+    }, 1000)
+    next()
+  }
+}
+</script>
