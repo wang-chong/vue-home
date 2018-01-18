@@ -76,8 +76,8 @@ export default {
             name: 'promise',
             value: '/async/promise'
           }, {
-            name: 'wait(未开发)',
-            value: '/async/promise'
+            name: 'await',
+            value: '/async/await'
           }]
         },
         {
@@ -161,7 +161,8 @@ export default {
           border-bottom: 2px solid $activeColor;
         }
         .arrow{
-          border-color: $activeColor transparent transparent transparent;
+          border-left-color: $activeColor;
+          transform: rotate(90deg);
         }
       }
       .arrow{
@@ -169,9 +170,11 @@ export default {
         vertical-align: middle;
         width: 0;
         height: 0;
-        border-width: 5px 5px 0;
+        border-width: 5px 0 5px 5px;
         border-style: solid;
-        border-color: #333 transparent transparent transparent;
+        border-color: transparent transparent transparent #333;
+        transition: transform 0.1s linear;
+        -webkit-will-change: transform;
       }
     }
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>JAVA多线程</h2>
     <pre>
       // 多线程实现实例
       // 继承Thread类，并且覆盖run方法

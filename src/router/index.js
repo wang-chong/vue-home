@@ -14,6 +14,7 @@ import Javascript from '@/components/index/thread/Javascript'
 import JavaTransfer from '@/components/index/thread/JavaTransfer'
 import Filter from '@/components/index/filter/Filter'
 import promise from '@/components/index/async/promise'
+import Await from '@/components/index/async/Await'
 import Cut from '@/components/index/img/Cut'
 import Center from '@/components/index/img/Center'
 
@@ -124,6 +125,10 @@ const ROUTER = new Router({
           path: '/',
           alias: 'promise',
           component: promise
+        },
+        {
+          path: 'await',
+          component: Await
         }
       ]
     },

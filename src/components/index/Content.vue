@@ -58,15 +58,18 @@
   border-radius: 8px;
   margin-top: 0.3rem;
   pre{
-    margin: 20px;
+    margin: 20px 0;
     border-radius: 8px;
-    padding: 10px;
+    padding: 10px 0;
     background-color: #b1d7e8;
     font-size: 14px;
     span{
       color: red;
       font-weight: 600;
     }
+  }
+  .from{
+    margin: 15px 0;
   }
 }
 </style>

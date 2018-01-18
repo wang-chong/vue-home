@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>js实现链表存储方式</h2>
     <h3>链表构造函数如下</h3>
     <pre>
       function LinkedList () {
