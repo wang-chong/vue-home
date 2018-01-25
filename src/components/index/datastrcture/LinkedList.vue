@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-once>
     <h2>js实现链表存储方式</h2>
     <h3>链表构造函数如下</h3>
     <pre>
@@ -150,9 +150,12 @@
 
       // 移除第一个数据(<span>不返回</span>第一个数据)
       <span>removeFirstWithoutBack()</span>;
-      
+
       // 移除指定索引index的数据，索引从1开始(删除成功返回true,否则返回false)
       <span>removeIndex(index)</span>;
+
+      // 遍历链表，返回字符串
+      <span>toString()</span>;      
     </pre>
     <h3>实例使用如下</h3>
     <pre>
