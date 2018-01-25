@@ -66,25 +66,25 @@
 </template>
 
 <script>
-// const awaitFunc = () => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       resolve('awaitFunc end...')
-//     }, 1000)
-//   })
-// }
-// async function test () {
-//   console.log(new Date().getSeconds())
-//   const lala = await awaitFunc()
-//   console.log(new Date().getSeconds())
-//   console.log(lala)
-// }
+const awaitFunc = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('awaitFunc end...')
+    }, 1000)
+  })
+}
+async function test () {
+  console.log(new Date().getSeconds())
+  const lala = await awaitFunc()
+  console.log(new Date().getSeconds())
+  console.log(lala)
+}
 const test1 = () => {
   console.log('test1')
 }
 
-// test()
-// test1()
+test()
+test1()
 
 const awaitFunc1 = () => {
   return 'awaitFunc1 end...'
