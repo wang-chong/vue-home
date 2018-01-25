@@ -54,7 +54,7 @@
   margin: 0 auto;
   padding: 0.3rem;
   position: relative;
-  background-color: #efebd0;
+  background-color: #EFEBDA;
   border-radius: 8px;
   margin-top: 0.3rem;
   pre{

@@ -7,23 +7,32 @@ import Welcome from '@/components/index/Welcome'
 import Page1 from '@/components/index/plugin/Hello1'
 import Page2 from '@/components/index/plugin/Hello2'
 import Page3 from '@/components/index/plugin/Hello3'
+// vue的组件通信
 import Bus from '@/components/index/transfer/Bus'
 import Vuex from '@/components/index/transfer/Vuex'
+// 多线程
 import Java from '@/components/index/thread/Java'
 import Javascript from '@/components/index/thread/Javascript'
 import JavaTransfer from '@/components/index/thread/JavaTransfer'
+// 过滤器
 import Filter from '@/components/index/filter/Filter'
-import promise from '@/components/index/async/promise'
-import Await from '@/components/index/async/Await'
+// 图片操作
 import Cut from '@/components/index/img/Cut'
 import Center from '@/components/index/img/Center'
 
 // 异步加载组件，会生成独立的js，访问的时候才会去加载
 // 需要异步加载的组件集合
 let asyncComponents = {
+  // 其他基础
   lazyload: () => import('@/components/index/basic/Lazyload.vue'),
   bind: () => import('@/components/index/basic/Bind.vue'),
-  linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue')
+  // 数据结构
+  linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue'),
+  tree: () => import('@/components/index/datastrcture/Tree.vue'),
+  // 异步
+  promise: () => import('@/components/index/async/promise'),
+  generator: () => import('@/components/index/async/Generator'),
+  Await: () => import('@/components/index/async/Await')
 }
 
 Vue.use(Router)
@@ -66,6 +75,7 @@ const ROUTER = new Router({
         }
       ]
     },
+    // 图片处理
     {
       // 默认有头有脚,没有过渡
       path: '/img',
@@ -86,8 +96,8 @@ const ROUTER = new Router({
         }
       ]
     },
+    // 组件通信
     {
-      // 组件通信
       path: '/transfer',
       components: {
         header: Header,
@@ -106,6 +116,7 @@ const ROUTER = new Router({
         }
       ]
     },
+    // 过滤器
     {
       path: '/filter',
       components: {
@@ -114,6 +125,7 @@ const ROUTER = new Router({
         footer: Footer
       }
     },
+    // 异步
     {
       path: '/async',
       components: {
@@ -124,14 +136,19 @@ const ROUTER = new Router({
         {
           path: '/',
           alias: 'promise',
-          component: promise
+          component: asyncComponents.promise
+        },
+        {
+          path: 'generator',
+          component: asyncComponents.generator
         },
         {
           path: 'await',
-          component: Await
+          component: asyncComponents.Await
         }
       ]
     },
+    // 线程
     {
       path: '/thread',
       components: {
@@ -154,6 +171,7 @@ const ROUTER = new Router({
         }
       ]
     },
+    // 其他基础
     {
       path: '/basic',
       components: {
@@ -172,6 +190,7 @@ const ROUTER = new Router({
         }
       ]
     },
+    // 数据结构
     {
       path: '/datastrcture',
       components: {
@@ -183,6 +202,10 @@ const ROUTER = new Router({
           path: '/',
           alias: 'linkedlist',
           component: asyncComponents.linkedlist
+        },
+        {
+          path: 'tree',
+          component: asyncComponents.tree
         }
       ]
     }
