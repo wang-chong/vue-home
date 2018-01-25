@@ -10,6 +10,7 @@ export const LinkedList = function () {
     this.ele = ele
   }
 
+  // 向链表前面添加一个元素
   this.addFirst = function (ele) {
     var node = new Node(ele)
     node.next = this.first
@@ -25,6 +26,7 @@ export const LinkedList = function () {
     this.size++
   }
 
+  // 向链表后面添加一个元素
   this.addLast = function (ele) {
     var node = new Node(ele)
     node.prev = this.last
@@ -38,9 +40,10 @@ export const LinkedList = function () {
     this.size++
   }
 
+  // 删除第一个元素并返回第一个元素
   this.removeFirst = function () {
     if (this.size === 0) {
-      return false
+      return null
     }
     const first = this.first
     this.first = this.first.next
@@ -52,10 +55,17 @@ export const LinkedList = function () {
     this.size--
     return first
   }
+  // 删除第一个元素，不返回元素
+  this.removeFirstWithoutBack = function () {
+    let first = this.removeFirst()
+    first = null
+    return first
+  }
 
+  // 删除最后一个元素并且返回最后一个元素
   this.removeLast = function () {
     if (this.size === 0) {
-      return false
+      return null
     }
     const last = this.last
     this.last = this.last.prev
@@ -67,10 +77,17 @@ export const LinkedList = function () {
     this.size--
     return last
   }
+  // 删除最后一个元素，不返回元素
+  this.removeLastWithoutBack = function () {
+    let last = this.removeLast()
+    last = null
+    return last
+  }
 
+  // 删除指定索引的元素并且返回指定元素
   this.removeIndex = function (index) {
     if (index >= this.size || index <= 0) {
-      return false
+      return null
     }
     switch (index) {
       case 1:
@@ -91,6 +108,12 @@ export const LinkedList = function () {
         }
         break
     }
+  }
+  // 删除指定索引的元素，不返回元素
+  this.removeIndexWithoutBack = function (index) {
+    let indexNode = this.removeIndex(index)
+    indexNode = null
+    return indexNode
   }
 
   this.toString = function () {
