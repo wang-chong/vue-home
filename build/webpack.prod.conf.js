@@ -9,6 +9,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
+// 预渲染插件，路由模式需要为history
+// var PrerenderSpaPlugin = require('prerender-spa-plugin')
+
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
@@ -76,6 +79,14 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
+    // 更好的seo，把需要做seo的页面提取出来进行单独处理，进行预渲染
+    // 但是！！用预加载的方式，需要路由模式为history,而不是hash
+    // new PrerenderSpaPlugin(
+    //   // Absolute path to compiled SPA
+    //   path.join(__dirname, '../dist'),
+    //   // List of routes to prerender
+    //   [ '/filter' ]
+    // )
   ]
 })
 

@@ -213,6 +213,8 @@ const ROUTER = new Router({
   linkActiveClass: 'router-active', // 路由激活自动添加的class
   linkExactActiveClass: 'router-exact-active', // 路由精确激活自动添加的class
   mode: 'hash', // 默认hash，路由模式
+  // 预渲染时使用history模式
+  // mode: 'history',
   base: '/' // 默认‘/’,应用的根
 })
 
