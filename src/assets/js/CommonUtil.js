@@ -1,3 +1,4 @@
+// 有序链表
 export const LinkedList = function () {
   this.first = null
   this.last = null
@@ -85,12 +86,11 @@ export const LinkedList = function () {
           if (count === index) {
             currentNode.prev.next = currentNode.next
             currentNode.next.prev = currentNode.prev
-            currentNode = null
+            return currentNode
           }
         }
         break
     }
-    return true
   }
 
   this.toString = function () {
@@ -104,6 +104,7 @@ export const LinkedList = function () {
   }
 }
 
+// 标准二叉树
 export const Tree = function () {
   this.first = null
   this.last = null
@@ -165,6 +166,48 @@ export const Tree = function () {
   }
   // 删除二叉树的最后一个节点
   this.removeLast = function () {
+    const last = this.last
+    let current = this.last
+    if (this.floor === 0) {
+      return ''
+    }
+    if (this.floor === 1) {
+      this.first = null
+      this.last = null
+      this.floor = 0
+      return last
+    }
+    if (current === current.father.lc) {
+      while (current.father) {
+        // 左节点
+        if (current === current.father.lc) {
+          current = current.father
+          continue
+        }
+        if (current === current.father.rc) {
+          current = current.father.lc
+          while (current.rc) {
+            current = current.rc
+          }
+          this.last = current
+          // 需要把删除之前的最后一个节点在父节点的子节点置为null,否则还可以遍历出来
+          last.father.lc = null
+          return last
+        }
+      }
+      while (current.rc) {
+        current = current.rc
+      }
+      last.father.lc = null
+      this.last = current
+      this.floor--
+      return last
+    }
+    if (current === current.father.rc) {
+      current.father.rc = null
+      this.last = current.father.lc
+      return last
+    }
   }
   // 深度优先遍历
   this.toStringDeepFirst = function () {
@@ -225,5 +268,9 @@ export const Tree = function () {
       }
     }
     return eleArr.join(',')
+  }
+  // 获取二叉树的层数
+  this.getFloor = function () {
+    return this.floor
   }
 }
