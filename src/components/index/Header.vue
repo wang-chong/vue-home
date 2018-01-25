@@ -76,6 +76,9 @@ export default {
             name: 'promise',
             value: '/async/promise'
           }, {
+            name: 'generator',
+            value: '/async/generator'
+          }, {
             name: 'await',
             value: '/async/await'
           }]
@@ -100,6 +103,9 @@ export default {
           submenus: [{
             name: '链表(linkedlist)',
             value: '/datastrcture/linkedlist'
+          }, {
+            name: '二叉树(tree)',
+            value: '/datastrcture/tree'
           }]
         },
         {
@@ -203,13 +209,12 @@ ul.submenu{
       &:before{
         content: '';
         position: absolute;
-        left: -0.1rem;
-        top: 0.09rem;
-        border-style: solid;
-        border-width: 0.05rem 0 0.05rem 0.05rem;
-        border-color: transparent transparent transparent $activeColor;
-        height: 0;
-        width: 0;
+        left: -0.15rem;
+        top: 0.05rem;
+        height: 0.2rem;
+        width: 0.1rem;
+        background: url(/static/imgs/flag.png) left no-repeat;
+        background-size: contain;
       }
     }
   }
