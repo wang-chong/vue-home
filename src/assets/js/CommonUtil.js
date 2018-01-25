@@ -139,6 +139,7 @@ export const Tree = function () {
     this.rc = null
     this.father = null
   }
+
   // 往二叉树加入一个节点
   this.add = function (ele) {
     const node = new Node(ele)
@@ -187,12 +188,13 @@ export const Tree = function () {
     }
     this.last = node
   }
-  // 删除二叉树的最后一个节点
+
+  // 删除二叉树的最后一个节点, 且返回节点
   this.removeLast = function () {
     const last = this.last
     let current = this.last
     if (this.floor === 0) {
-      return ''
+      return null
     }
     if (this.floor === 1) {
       this.first = null
@@ -232,6 +234,13 @@ export const Tree = function () {
       return last
     }
   }
+  // 删除二叉树的最后一个节点, 不返回节点
+  this.removeLastWithoutBack = function () {
+    let last = this.removeLast()
+    last = null
+    return last
+  }
+
   // 深度优先遍历
   this.toStringDeepFirst = function () {
     function next (current) {
@@ -270,6 +279,7 @@ export const Tree = function () {
     }
     return eleArr.join(',')
   }
+
   // 广度优先遍历
   this.toStringBreadthFirst = function () {
     const eleArr = []
@@ -292,6 +302,7 @@ export const Tree = function () {
     }
     return eleArr.join(',')
   }
+
   // 获取二叉树的层数
   this.getFloor = function () {
     return this.floor
