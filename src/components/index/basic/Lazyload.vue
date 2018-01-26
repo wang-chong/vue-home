@@ -4,7 +4,7 @@
     <h3>结合webpack和vue实现的懒加载，分离打包</h3>
     <pre>
     	const lazyload = () => import('@/components/index/basic/Lazyload.vue')
-    	路由或者vue实例中组件可以直接用lazyload
+    	路由或者vue实例(.vue,<span>需要vue版本2.5+</span>)中组件可以直接用lazyload
     	components: {
     		lazyload: lazyload
     	}

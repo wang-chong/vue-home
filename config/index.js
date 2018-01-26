@@ -29,11 +29,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/mapi': {
-        target: 'http://' + environment + '.dcfservice.com/mapi',
+      '/api': {
+        target: 'http://' + environment + '.dcfservice.com/api',
         changeOrigin: true,
         pathRewrite: {
-          '^/mapi': ''
+          '^/api': ''
         }
       }
     },

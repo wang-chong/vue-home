@@ -69,7 +69,7 @@ Vue.filter('num', function (val) {
 /*
 * 金额格式化
 * s: 需要格式化的字符串或者数字金额
-* n: 保留小数的位数
+* n: 保留小数的位数，默认保留两位
 */
 Vue.filter('amount', function (s, n) {
   s = s || 0
