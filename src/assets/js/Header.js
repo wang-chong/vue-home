@@ -80,6 +80,12 @@ export const IndexHeader = {
     }, {
       name: 'js懒加载',
       value: '/basic/lazyload'
+    }, {
+      name: '数组操作',
+      value: '/basic/arrayOperation'
+    }, {
+      name: '继承',
+      value: '/basic/inherits'
     }]
   }]
 }

@@ -26,6 +26,8 @@ let asyncComponents = {
   // 其他基础
   lazyload: () => import('@/components/index/basic/Lazyload.vue'),
   bind: () => import('@/components/index/basic/Bind.vue'),
+  arrayOperation: () => import('@/components/index/basic/ArrayOperation.vue'),
+  inherits: () => import('@/components/index/basic/Inherits.vue'),
   // 数据结构
   linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue'),
   tree: () => import('@/components/index/datastrcture/Tree.vue'),
@@ -187,6 +189,14 @@ const ROUTER = new Router({
         {
           path: 'lazyload',
           component: asyncComponents.lazyload
+        },
+        {
+          path: 'arrayOperation',
+          component: asyncComponents.arrayOperation
+        },
+        {
+          path: 'inherits',
+          component: asyncComponents.inherits
         }
       ]
     },
