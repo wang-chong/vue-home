@@ -23,11 +23,12 @@ import Center from '@/components/index/img/Center'
 // 异步加载组件，会生成独立的js，访问的时候才会去加载
 // 需要异步加载的组件集合
 let asyncComponents = {
-  // 其他基础
+  // 其他基础basic
   lazyload: () => import('@/components/index/basic/Lazyload.vue'),
   bind: () => import('@/components/index/basic/Bind.vue'),
   arrayOperation: () => import('@/components/index/basic/ArrayOperation.vue'),
   inherits: () => import('@/components/index/basic/Inherits.vue'),
+  ajaxRequest: () => import('@/components/index/basic/AjaxRequest.vue'),
   // 数据结构
   linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue'),
   tree: () => import('@/components/index/datastrcture/Tree.vue'),
@@ -197,6 +198,10 @@ const ROUTER = new Router({
         {
           path: 'inherits',
           component: asyncComponents.inherits
+        },
+        {
+          path: 'ajaxRequest',
+          component: asyncComponents.ajaxRequest
         }
       ]
     },

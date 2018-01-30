@@ -86,6 +86,9 @@ export const IndexHeader = {
     }, {
       name: '继承',
       value: '/basic/inherits'
+    }, {
+      name: 'ajax请求',
+      value: '/basic/ajaxRequest'
     }]
   }]
 }
