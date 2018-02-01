@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default function (options) {
+export default function (options, onSuccess, onError) {
   if (options.contentType) {
     if (options.headers) {
       options.headers['Content-Type'] = options.contentType
@@ -10,5 +10,17 @@ export default function (options) {
       }
     }
   }
-  return axios(options)
+  axios(options)
+  .then((res) => {
+    if (onSuccess) {
+      onSuccess(res)
+    }
+  })
+  .catch((e) => {
+    if (onError) {
+      onError(e)
+    } else {
+      console.log(e)
+    }
+  })
 }

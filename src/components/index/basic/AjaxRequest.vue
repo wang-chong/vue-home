@@ -55,80 +55,65 @@ export default {
   methods: {
     getAllUser () {
       const vm = this
-      getAllUser()
-      .then(function (res) {
+      const onSuccess = (res) => {
         vm.userList = res.data || []
-      })
-      .catch(function (res) {
-        console.log('catch')
-        console.log(res)
-      })
+      }
+      getAllUser(onSuccess)
     },
     createUser () {
       const vm = this
-      createUser({
+      const param = {
         userName: vm.createUserName
-      })
-      .then((res) => {
+      }
+      const onSuccess = (res) => {
         if (res) {
           vm.getAllUser()
         }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      }
+      createUser(param, onSuccess)
     },
     deleteUser () {
       const vm = this
-      deleteUser({
+      const param = {
         userName: vm.deleteUserName
-      })
-      .then((res) => {
+      }
+      const onSuccess = (res) => {
         if (res) {
           vm.getAllUser()
         }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      }
+      deleteUser(param, onSuccess)
     },
     deleteLastUser () {
       const vm = this
-      deleteLastUser()
-      .then((res) => {
+      const onSuccess = (res) => {
         if (res) {
           vm.getAllUser()
         }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      }
+      deleteLastUser(onSuccess)
     },
     updateUser () {
       const vm = this
-      updateUser({
+      const param = {
         userName: vm.updateUserName
-      })
-      .then((res) => {
+      }
+      const onSuccess = (res) => {
         if (res) {
           vm.getAllUser()
         }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      }
+      updateUser(param, onSuccess)
     },
     referUser () {
       const vm = this
-      referUser({
+      const param = {
         userName: vm.referUserName
-      })
-      .then((res) => {
+      }
+      const onSuccess = (res) => {
         vm.userList = res.data
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      }
+      referUser(param, onSuccess)
     }
   }
 }
