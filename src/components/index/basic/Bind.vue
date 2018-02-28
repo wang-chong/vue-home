@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>bind函数实现</h2>
-    <h3>以下代码是在vue组件中，通过webpack打包，否则第一个func()结果应为lol</h3>
     <pre>
       /* eslint-disable */
       Function.prototype.bind = Function.prototype.bind || function (context) {
