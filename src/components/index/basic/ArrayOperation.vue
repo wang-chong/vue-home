@@ -27,6 +27,20 @@
       })
       // 上述代码会报错，不能使用break语句
       </pre>
+      <h3>map</h3>
+      <pre>
+      arr.map(ele => {
+        console.log(ele)
+      })
+      // 同样没有break操作，如
+      arr.forEach((ele) => {
+        if (ele === 'C') {
+          break
+        }
+        console.log(ele)
+      })
+      // 上述代码会报错，不能使用break语句
+      </pre>
       <h3>for-in循环</h3>
       <pre>
       for (let ele in arr) {
@@ -85,6 +99,12 @@
       // 后面添加的数据，如果重复了，不能添加进去，根据存储的顺序可以查看
       // 如：上面的set遍历结果为ACBD而不是ACDB
       </pre>
+      <h3>利用Set类和扩展运算符</h3>
+      <pre>
+      const arr4 = [...new Set(arr)]
+      // new Set(arr) Set类接受数组进行初始化
+      // 扩展运算符...将Set实例展开
+      </pre>
     </div>
   </div>
 </template>
@@ -104,6 +124,12 @@ function arrayIteration () {
   console.log('-----------forEach-------------')
   // forEach循环
   arr.forEach((ele) => {
+    console.log(ele)
+  })
+
+  console.log('-----------map-------------')
+  // map循环
+  arr.map(ele => {
     console.log(ele)
   })
 
@@ -161,6 +187,14 @@ function arrayUniq () {
   for (let item of arr3) {
     console.log(item)
   }
+
+  console.log('------------利用Set类（ES6）和扩展运算符(...)------------')
+  const arr4 = [...new Set(arr)]
+  console.log('------------遍历新数组------------')
+  for (let item of arr4) {
+    console.log(item)
+  }
+
   console.log('------------去重end------------')
 }
 arrayUniq()
