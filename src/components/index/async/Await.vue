@@ -57,6 +57,59 @@
     */
     </pre>
     <p>以上结果说明async标记之后的函数，即时await等待的函数并没有异步执行，在程序运行过程中也存在一定的延时，也就相当于进行了异步操作，程序会继续执行async标记的函数的后面的程序，如test1,并且快于await之后的程序</p>
+    <pre>
+    async function test4 () {
+      console.log('test4 begin...')
+      console.log(new Date().getSeconds())
+      const p1 = await awaitFunc()
+      const p2 = await awaitFunc()
+      console.log(new Date().getSeconds())
+      console.log(p1)
+      console.log(p2)
+    }
+    test4()
+    /*
+    * 打印结果如下
+    * test4 begin...
+    * 48
+    * 50
+    * awaitFunc end...
+    * awaitFunc end...
+    */
+    </pre>
+    <p>以上结果说明即使两个异步函数之间没有关联，但是在async函数内部总是同步执行，导致程序比较耗时，解决方案如下</p>
+    <pre>
+    async function test3 () {
+      console.log('test3 begin...')
+      console.log(new Date().getSeconds())
+      const [p1, p2] = await Promise.all([awaitFunc(), awaitFunc()])
+      console.log(new Date().getSeconds())
+      console.log(p1)
+      console.log(p2)
+    
+      /*
+      * 或者如下
+      * console.log('test3 begin...')
+      * console.log(new Date().getSeconds())
+      * const p1 = awaitFunc()
+      * const p2 = awaitFunc()
+      * const result1 = await p1
+      * const result2 = await p2
+      * console.log(new Date().getSeconds())
+      * console.log(result1)
+      * console.log(result2)
+      */
+    }
+    test3()
+    /*
+    * 打印结果如下
+    * test3 begin...
+    * 22
+    * 23
+    * awaitFunc end...
+    * awaitFunc end...
+    */
+    </pre>
     <div class="from">
       <h3>参考文档如下</h3>
       <p><a href="http://www.ruanyifeng.com/blog/2015/05/async.html" target="_new">参考文档1</a></p>
@@ -73,31 +126,62 @@ const awaitFunc = () => {
     }, 1000)
   })
 }
-async function test () {
-  console.log(new Date().getSeconds())
-  const lala = await awaitFunc()
-  console.log(new Date().getSeconds())
-  console.log(lala)
-}
-const test1 = () => {
-  console.log('test1')
-}
+// async function test () {
+//   console.log(new Date().getSeconds())
+//   const lala = await awaitFunc()
+//   console.log(new Date().getSeconds())
+//   console.log(lala)
+// }
+// const test1 = () => {
+//   console.log('test1')
+// }
 
-test()
-test1()
+// test()
+// test1()
 
-const awaitFunc1 = () => {
-  return 'awaitFunc1 end...'
-}
-async function test2 () {
-  console.log(new Date().getSeconds())
-  const lala = await awaitFunc1()
-  console.log(new Date().getSeconds())
-  console.log(lala)
-}
+// const awaitFunc1 = () => {
+//   return 'awaitFunc1 end...'
+// }
+// async function test2 () {
+//   console.log(new Date().getSeconds())
+//   const lala = await awaitFunc1()
+//   console.log(new Date().getSeconds())
+//   console.log(lala)
+// }
 
-test2()
-test1()
+// test2()
+// test1()
+
+async function test3 () {
+  console.log('test3 begin...')
+  console.log(new Date().getSeconds())
+  const [p1, p2] = await Promise.all([awaitFunc(), awaitFunc()])
+  console.log(new Date().getSeconds())
+  console.log(p1)
+  console.log(p2)
+
+  // console.log('test3 begin...')
+  // console.log(new Date().getSeconds())
+  // const p1 = awaitFunc()
+  // const p2 = awaitFunc()
+  // const result1 = await p1
+  // const result2 = await p2
+  // console.log(new Date().getSeconds())
+  // console.log(result1)
+  // console.log(result2)
+}
+test3()
+
+// async function test4 () {
+//   console.log('test4 begin...')
+//   console.log(new Date().getSeconds())
+//   const p1 = await awaitFunc()
+//   const p2 = await awaitFunc()
+//   console.log(new Date().getSeconds())
+//   console.log(p1)
+//   console.log(p2)
+// }
+// test4()
 
 export default {
   data () {
