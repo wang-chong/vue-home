@@ -81,7 +81,11 @@ exports.getEntry = function (globPath) {
     if (folderPath && folderPath.length > 0) {
       basename = folderPath[1] + '/' + basename
     }
-    entries[basename] = entry
+    if (entry.includes('.js')) {
+      entries[basename] = ['babel-polyfill', entry]
+    } else {
+      entries[basename] = entry
+    }
   })
   return entries
 }
