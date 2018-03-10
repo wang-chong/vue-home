@@ -29,6 +29,7 @@ let asyncComponents = {
   arrayOperation: () => import('@/components/index/basic/ArrayOperation.vue'),
   inherits: () => import('@/components/index/basic/Inherits.vue'),
   ajaxRequest: () => import('@/components/index/basic/AjaxRequest.vue'),
+  environment: () => import('@/components/index/basic/Environment.vue'),
   // 数据结构
   linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue'),
   tree: () => import('@/components/index/datastrcture/Tree.vue'),
@@ -202,6 +203,10 @@ const ROUTER = new Router({
         {
           path: 'ajaxRequest',
           component: asyncComponents.ajaxRequest
+        },
+        {
+          path: 'environment',
+          component: asyncComponents.environment
         }
       ]
     },

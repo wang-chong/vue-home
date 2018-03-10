@@ -89,6 +89,9 @@ export const IndexHeader = {
     }, {
       name: 'ajax请求',
       value: '/basic/ajaxRequest'
+    }, {
+      name: '开发环境',
+      value: '/basic/environment'
     }]
   }]
 }
