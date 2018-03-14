@@ -30,9 +30,12 @@ let asyncComponents = {
   inherits: () => import('@/components/index/basic/Inherits.vue'),
   ajaxRequest: () => import('@/components/index/basic/AjaxRequest.vue'),
   environment: () => import('@/components/index/basic/Environment.vue'),
+  // vue相关
+  mixinAndExtend: () => import('@/components/index/vue/MixinAndExtend.vue'),
   // 数据结构
   linkedlist: () => import('@/components/index/datastrcture/LinkedList.vue'),
   tree: () => import('@/components/index/datastrcture/Tree.vue'),
+  set: () => import('@/components/index/datastrcture/Set.vue'),
   // 异步
   promise: () => import('@/components/index/async/promise'),
   generator: () => import('@/components/index/async/Generator'),
@@ -226,8 +229,25 @@ const ROUTER = new Router({
         {
           path: 'tree',
           component: asyncComponents.tree
+        },
+        {
+          path: 'set',
+          component: asyncComponents.set
         }
       ]
+    },
+    // vue相关
+    {
+      path: '/vue',
+      components: {
+        header: Header,
+        default: Content
+      },
+      children: [{
+        path: '/',
+        alias: 'mixinAndExtend',
+        component: asyncComponents.mixinAndExtend
+      }]
     }
   ],
   linkActiveClass: 'router-active', // 路由激活自动添加的class

@@ -70,6 +70,16 @@ export const IndexHeader = {
     }, {
       name: '二叉树(tree)',
       value: '/datastrcture/tree'
+    }, {
+      name: 'Set类',
+      value: '/datastrcture/set'
+    }]
+  }, {
+    name: 'VUE',
+    value: '/vue',
+    submenus: [{
+      name: 'Mixin和extend',
+      value: '/vue/mixinAndExtend'
     }]
   }, {
     name: '其他基础',
