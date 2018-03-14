@@ -57,7 +57,7 @@
   background-color: #EFEBDA;
   border-radius: 8px;
   margin-top: 0.3rem;
-  pre{
+  pre, ol.list{
     margin: 20px 0;
     border-radius: 8px;
     padding: 10px 0;
@@ -66,6 +66,14 @@
     span{
       color: red;
       font-weight: 600;
+    }
+  }
+  ol.list{
+    list-style: decimal;
+    padding-left: 20px;
+    padding-right: 10px;
+    li{
+      margin: 5px;
     }
   }
   .from{
