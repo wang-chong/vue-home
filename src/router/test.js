@@ -33,28 +33,6 @@ export default new Router({
       ]
     },
     {
-      path: '/home2',
-      redirect: '/home2/hello1',
-      component: Home,
-      children: [
-        {
-          path: 'hello1',
-          name: 'hello3',
-          component: Hello1
-        },
-        {
-          path: 'hello2',
-          name: 'hello4',
-          component: Hello2
-        },
-        {
-          path: 'hello3',
-          name: 'hello5',
-          component: Hello3
-        }
-      ]
-    },
-    {
       path: '/newpage',
       component: NewPage
     }
