@@ -19,5 +19,9 @@
     <div>
       <h3>移动端抓包工具安装</h3>
     </div>
+    <div>
+      <h3>字体选择缩减工具安装</h3>
+      <p>工具名：fontmin,下载地址https://pan.baidu.com/s/1fY8nzzXrYp_3izKLi8lFAQ</p>
+    </div>
   </div>
 </template>
