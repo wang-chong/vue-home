@@ -102,6 +102,9 @@ export const IndexHeader = {
     }, {
       name: '开发环境',
       value: '/basic/environment'
+    }, {
+      name: 'flex布局',
+      value: '/basic/flex'
     }]
   }]
 }

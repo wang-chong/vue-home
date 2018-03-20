@@ -30,6 +30,7 @@ let asyncComponents = {
   inherits: () => import('@/components/index/basic/Inherits.vue'),
   ajaxRequest: () => import('@/components/index/basic/AjaxRequest.vue'),
   environment: () => import('@/components/index/basic/Environment.vue'),
+  flex: () => import('@/components/index/basic/Flex.vue'),
   // vue相关
   mixinAndExtend: () => import('@/components/index/vue/MixinAndExtend.vue'),
   // 数据结构
@@ -210,6 +211,10 @@ const ROUTER = new Router({
         {
           path: 'environment',
           component: asyncComponents.environment
+        },
+        {
+          path: 'flex',
+          component: asyncComponents.flex
         }
       ]
     },
