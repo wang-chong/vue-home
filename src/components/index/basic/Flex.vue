@@ -64,6 +64,27 @@
       }
       </pre>
     </div>
+    <div class="part">
+      <h3>part3、横向从右到左</h3>
+      <div class="flex-row-reverse">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+      </div>
+    </div>
+    <div class="part">
+      <h3>part4、纵向从下到上</h3>
+      <div class="flex-column-reverse">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+      </div>
+    </div>
+    <div class="part">
+      <h3>part5、纵向从下到上，靠右</h3>
+      <div class="flex-column-row-reverse">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -101,5 +122,18 @@
 .small-height{
   height: 100px;
   background-color: #fff;
+}
+.flex-row-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.flex-column-reverse{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.flex-column-row-reverse{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
 }
 </style>

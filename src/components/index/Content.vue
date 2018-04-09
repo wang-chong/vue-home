@@ -57,6 +57,9 @@
   background-color: #EFEBDA;
   border-radius: 8px;
   margin-top: 0.3rem;
+  pre{
+    white-space: pre-wrap;
+  }
   pre, ol.list{
     margin: 20px 0;
     border-radius: 8px;
