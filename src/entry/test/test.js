@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import Test from '@/components/test/Test'
 import router from '@/router/test.js'
-import myInput from '@/components/globalComponents/input/'
-Vue.use(myInput)
+import HInput from '@/components/globalComponents/HInput/'
+Vue.use(HInput)
 
 Vue.config.productionTip = false
 

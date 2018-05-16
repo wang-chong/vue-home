@@ -41,35 +41,3 @@ h1, h2{
 input:focus {
   outline: none;
 }
-
-table {
-  border-collapse:collapse;
-  width: 100%;
-  background-color: #fff;
-
-  thead {
-    box-shadow: none;
-    line-height: 2;
-
-    th {
-      text-align: left;
-      text-transform: none;
-      padding: 0.12rem;
-    }
-  }
-  tbody {
-    line-height: 1.5;
-    tr{
-      &:nth-child(odd){
-        background-color: rgba(0,0,0,.05);
-      }
-      &:hover{
-        background-color: rgba(0, 0, 0, .07);
-      }
-      td {
-        text-align: left;
-        padding: 0.12rem;
-      }
-    }
-  }
-}

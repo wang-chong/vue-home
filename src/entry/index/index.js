@@ -6,13 +6,15 @@ import router from '@/router/'
 import store from '@/store/' // vuex
 import filter from '@/assets/js/Filter'
 
-import myInput from '@/components/globalComponents/input/'
+import HInput from '@/components/globalComponents/HInput/'
+import HTable from '@/components/globalComponents/HTable/'
 import detailList from 'vue-detail-list'
 import dropload from 'vue-dropload-m'
 
 Vue.use(detailList)
 Vue.use(dropload)
-Vue.use(myInput)
+Vue.use(HInput)
+Vue.use(HTable)
 
 Vue.config.productionTip = false
 
