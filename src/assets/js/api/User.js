@@ -3,7 +3,7 @@ import ajax from '../Ajax'
 // 获取所有user的list
 export const getAllUser = (onSuccess, onError) => {
   const option = {
-    url: '/user/allUser',
+    url: '/api/user/allUser',
     method: 'get'
   }
   ajax(option, onSuccess, onError)
@@ -12,7 +12,7 @@ export const getAllUser = (onSuccess, onError) => {
 // 创建一个用户
 export const createUser = (param, onSuccess, onError) => {
   const option = {
-    url: '/user/createUser',
+    url: '/api/user/createUser',
     method: 'post',
     data: JSON.stringify(param),
     contentType: 'application/json'
@@ -23,7 +23,7 @@ export const createUser = (param, onSuccess, onError) => {
 // 删除一个用户
 export const deleteUser = (param, onSuccess, onError) => {
   const option = {
-    url: '/user/deleteUser',
+    url: '/api/user/deleteUser',
     method: 'get',
     params: param
   }
@@ -33,7 +33,7 @@ export const deleteUser = (param, onSuccess, onError) => {
 // 删除最后一个用户
 export const deleteLastUser = (onSuccess, onError) => {
   const option = {
-    url: '/user/deleteLastUser',
+    url: '/api/user/deleteLastUser',
     method: 'get'
   }
   ajax(option, onSuccess, onError)
@@ -42,7 +42,7 @@ export const deleteLastUser = (onSuccess, onError) => {
 // 更新一个用户的信息
 export const updateUser = (param, onSuccess, onError) => {
   const option = {
-    url: '/user/updateUser',
+    url: '/api/user/updateUser',
     method: 'post',
     data: param
   }
@@ -52,7 +52,7 @@ export const updateUser = (param, onSuccess, onError) => {
 // 查询用户信息
 export const referUser = (param, onSuccess, onError) => {
   const option = {
-    url: '/user/referUser',
+    url: '/api/user/referUser',
     method: 'get',
     params: param
   }

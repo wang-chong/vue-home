@@ -1,40 +1,40 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/test/Home'
-import NewPage from '@/components/test/NewPage'
-import Hello1 from '@/components/test/Hello1'
-import Hello2 from '@/components/test/Hello2'
-import Hello3 from '@/components/test/Hello3'
+
+import Test1 from '@/components/test/Test1'
+import Test2 from '@/components/test/Test2'
+import Test3 from '@/components/test/Test3'
+import Test4 from '@/components/test/Test4'
+import Test5 from '@/components/test/Test5'
+import Test6 from '@/components/test/Test6'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/home1',
-      redirect: '/home1/hello1',
-      component: Home,
-      children: [
-        {
-          path: 'hello1',
-          name: 'hello1',
-          component: Hello1
-        },
-        {
-          path: 'hello2',
-          name: 'hello2',
-          component: Hello2
-        },
-        {
-          path: 'hello3',
-          name: 'hello3',
-          component: Hello3
-        }
-      ]
+      path: '/test1',
+      component: Test1
     },
     {
-      path: '/newpage',
-      component: NewPage
+      path: '/test2',
+      component: Test2
+    },
+    {
+      path: '/test3',
+      component: Test3
+    },
+    {
+      path: '/test4',
+      component: Test4
+    },
+    {
+      path: '/test5',
+      component: Test5
+    },
+    {
+      path: '/test6',
+      component: Test6
     }
   ],
   linkActiveClass: 'router-active', // 路由激活自动添加的class

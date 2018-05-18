@@ -6,6 +6,10 @@ import router from '@/router/test.js'
 import HInput from '@/components/globalComponents/HInput/'
 Vue.use(HInput)
 
+import { Upload } from 'element-ui'
+
+Vue.component(Upload.name, Upload)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
