@@ -3,7 +3,7 @@
     <h4>文件上传</h4>
     <el-upload
       class="avatar-uploader"
-      action='/api/file/upload'
+      action='/api/common/file/upload'
       :show-file-list="false"
       :on-success="handleAvatarSuccess"
       :before-upload="beforeAvatarUpload">

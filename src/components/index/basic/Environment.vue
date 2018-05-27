@@ -4,17 +4,19 @@
     <div>
       <h3>node版本管理器(nvm)的安装</h3>
       <pre>
-      1、下载nvm安装包，下载地址https://github.com/coreybutler/nvm-windows/releases，下载安装版，解压安装即可(nvm-setup)，安装路径尽量不要有特殊字符和空格
-      2、命令行输入nvm检查是否安装成功，熟悉几个nvm的命令，如
+      1、下载nvm安装包，下载地址<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">https://github.com/coreybutler/nvm-windows/releases</a>，下载安装版，解压安装即可(nvm-setup)，安装路径尽量不要有特殊字符和空格
+      2、cmd命令行输入nvm检查是否安装成功，熟悉几个nvm的命令，如
       nvm node_mirror https://npm.taobao.org/mirrors/node/(设置安装node镜像的地址，否则安装太慢)
       nvm npm_mirror https://npm.taobao.org/mirrors/npm/(设置安装npm镜像的地址，否则安装太慢)
       nvm root url(安装node的地址)
-      nvm install 1.1.1(安装版本号为1.1.1的node.js)
+      nvm install 6.2.1(安装版本号为6.2.1的node.js)
       nvm list(列出当前可用的node版本)
-      nvm use 1.1.1(使用1.1.1版本的node.js)
-      注意：也许使用nvm use 没有效果，其实只需要手动修改环境变量即可，将NVM_SYMLINK修改为node的地址
+      nvm use 6.2.1(使用6.2.1版本的node.js)
+      3、检查nodejs和npm是否设置成功
+      cmd命令行输入node -v
+      cmd命令行输入npm -v
+      注意：也许使用nvm use 没有效果，其实只需要手动修改环境变量即可，将NVM_SYMLINK修改为node的地址(也就是安装nvm的时候设置的node的地址)
       </pre>
-      <h3></h3>
     </div>
     <div>
       <h3>sublime less to css</h3>
