@@ -3,12 +3,12 @@
 import Vue from 'vue'
 import Test from '@/components/test/Test'
 import router from '@/router/test.js'
-import { Upload } from 'element-ui'
+import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import HInput from '@/components/globalComponents/HInput/'
 Vue.use(HInput)
 
-Vue.component(Upload.name, Upload)
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 

@@ -9,17 +9,6 @@ export const getAllUser = (onSuccess, onError) => {
   ajax(option, onSuccess, onError)
 }
 
-// 创建一个用户
-export const createUser = (param, onSuccess, onError) => {
-  const option = {
-    url: '/api/user/createUser',
-    method: 'post',
-    data: JSON.stringify(param),
-    contentType: 'application/json'
-  }
-  ajax(option, onSuccess, onError)
-}
-
 // 删除一个用户
 export const deleteUser = (param, onSuccess, onError) => {
   const option = {

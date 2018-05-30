@@ -1,6 +1,5 @@
 <template>
   <div class="test1">
-    <h4>文件上传</h4>
     <el-upload
       class="avatar-uploader"
       action='/api/common/file/upload'
@@ -10,35 +9,53 @@
       <img v-if="imageUrl" :src="imageUrl" class="avatar">
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
+    <div class="img">
+      <img :src="src">
+    </div>
+    <button @click="getFileUrlById">获取图片</button>
   </div>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        imageUrl: ''
-      }
-    },
-    methods: {
-      handleAvatarSuccess (res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw)
-      },
-      beforeAvatarUpload (file) {
-        return true
-        // const isJPG = file.type === 'image/jpeg'
-        // const isLt2M = file.size / 1024 / 1024 < 2
+import { getFileUrlById } from '@/assets/js/api/Common'
 
-        // if (!isJPG) {
-        //   this.$message.error('上传头像图片只能是 JPG 格式!')
-        // }
-        // if (!isLt2M) {
-        //   this.$message.error('上传头像图片大小不能超过 2MB!')
-        // }
-        // return isJPG && isLt2M
+export default {
+  data () {
+    return {
+      imageUrl: '',
+      fileId: null,
+      src: ''
+    }
+  },
+  methods: {
+    handleAvatarSuccess (res, file) {
+      this.fileId = res
+      this.imageUrl = URL.createObjectURL(file.raw)
+    },
+    beforeAvatarUpload (file) {
+      return true
+      // const isJPG = file.type === 'image/jpeg'
+      // const isLt2M = file.size / 1024 / 1024 < 2
+
+      // if (!isJPG) {
+      //   this.$message.error('上传头像图片只能是 JPG 格式!')
+      // }
+      // if (!isLt2M) {
+      //   this.$message.error('上传头像图片大小不能超过 2MB!')
+      // }
+      // return isJPG && isLt2M
+    },
+    getFileUrlById () {
+      const onSuccess = (res) => {
+        this.src = res.data.url
       }
+      const onError = (err) => {
+        console.log(err)
+      }
+      getFileUrlById(this.fileId, onSuccess, onError)
     }
   }
+}
 </script>
 
 <style scoped>
