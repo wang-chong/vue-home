@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import { getAllUser, createUser, deleteUser, deleteLastUser, updateUser, referUser } from '@/assets/js/api/User'
+import { getAllUser, deleteUser, deleteLastUser, updateUser, referUser } from '@/assets/js/api/User'
+import { register } from '@/assets/js/api/Common'
 
 export default {
   data () {
@@ -59,7 +60,7 @@ export default {
       getAllUser(onSuccess)
     },
     // 创建一个用户
-    createUser () {
+    register () {
       const vm = this
       const param = {
         userName: vm.createUserName
@@ -69,7 +70,7 @@ export default {
           vm.getAllUser()
         }
       }
-      createUser(param, onSuccess)
+      register(param, onSuccess)
     },
     // 删除一个用户
     deleteUser () {

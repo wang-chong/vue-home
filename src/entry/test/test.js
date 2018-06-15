@@ -5,10 +5,14 @@ import Test from '@/components/test/Test'
 import router from '@/router/test.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Vant from 'vant'
+import 'vant/lib/vant-css/index.css'
 import HInput from '@/components/globalComponents/HInput/'
 Vue.use(HInput)
 
 Vue.use(ElementUI)
+
+Vue.use(Vant)
 
 Vue.config.productionTip = false
 

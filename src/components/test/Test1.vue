@@ -13,13 +13,18 @@
       <img :src="src">
     </div>
     <button @click="getFileUrlById">获取图片</button>
+    <vh-upload></vh-upload>
   </div>
 </template>
 
 <script>
 import { getFileUrlById } from '@/assets/js/api/Common'
+import upload from './fileupload/Upload'
 
 export default {
+  components: {
+    'vh-upload': upload
+  },
   data () {
     return {
       imageUrl: '',

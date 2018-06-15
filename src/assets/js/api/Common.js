@@ -47,3 +47,11 @@ export const register = (param, onSuccess, onError) => {
   }
   ajax(option, onSuccess, onError)
 }
+
+export const getcore = (onSuccess, onError) => {
+  const option = {
+    url: '/jsData/txtLive/3/19/319941Cg.js?flesh=0.' + Date.now(),
+    method: 'get'
+  }
+  ajax(option, onSuccess, onError)
+}
